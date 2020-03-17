@@ -103,7 +103,7 @@
                     <div id="grid-container">
                         <!-- Item -->
 												<?php foreach ($projects as $project ): ?>
-	                        <div class="cbp-item photography">
+	                        <div class="cbp-item <?= $project->project_category?>">
 	                            <a href="portfolio/work-1.html">
 	                                <figure class="fig">
 	                                    <img src="<?= $project->project_image?>" alt="">
@@ -115,6 +115,7 @@
 	                            </a>
 	                        </div>
 												<?php endforeach ?>
+											</div>
                     <!-- load more button -->
                     <div id="port-loadMore" class="cbp-l-loadMore-button top_120 bottom_90">
                         <a href="port.html" class="cbp-l-loadMore-link site-btn" rel="nofollow">
