@@ -1,4 +1,5 @@
 <?php
+
 	require_once('functions.php');
 	$projects = getProjects();
 
@@ -14,6 +15,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!-- Stylesheets -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="cubeportfolio/css/cubeportfolio.min.css"/>
     <link rel="stylesheet" href="css/colors/red.css"/>
@@ -102,6 +104,7 @@
                     </div>
                     <div id="grid-container">
                         <!-- Item -->
+
 												<?php foreach ($projects as $project ): ?>
 	                        <div class="cbp-item <?= $project->project_category?>">
 	                            <a href="portfolio/work-1.html">
@@ -164,15 +167,20 @@
        </div>
     </footer>
 
-    <!-- Javascripts -->
-    <script src="js/jquery-2.1.4.min.js"></script>
-    <script src="cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
-    <script src="js/typed.js"></script>
-    <script src="js/particles.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/jquery.hover3d.js"></script>
-    <script src="twitter-api/tweetie.js"></script>
-    <script src="js/main.js"></script>
+
+<?php
+	// NE marche pas quand j'appelle mes scripts dans le scripts.php
+	include('scripts.php')
+?>
+<!-- Javascripts -->
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+<script src="js/typed.js"></script>
+<script src="js/particles.js"></script>
+<script src="js/app.js"></script>
+<script src="js/jquery.hover3d.js"></script>
+<script src="twitter-api/tweetie.js"></script>
+<script src="js/main.js"></script>
 
 </body>
 </html>
