@@ -42,16 +42,17 @@ return $project;
 
 function createProject(){
 
-    require('connect.php');
+  require('connect.php');
 
-    $query_create = $bdPdo->prepare('INSERT INTO projects(project_title, project_description, project_image, project_date, project_category) VALUES(:title, :description, :image, :date_project, :category)');
+  $date=date("Y-m-d",strtotime($_POST['date']));
+  $query_create = $bdPdo->prepare('INSERT INTO projets(project_title, project_description, project_image, project_date, project_category) VALUES(:title, :description, :image, :date_project, :category)');
 
     $query_create->execute(array(
         ':titre' => $_POST['title'],
         ':description' => $_POST['description'],
         ':image' => $_POST['image'],
         ':category' => $_POST['category'],
-        ':date' => $_POST['date'],
+        ':date' => $date
     ));
 
     $query_create->closeCursor();
