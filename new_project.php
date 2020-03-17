@@ -23,6 +23,10 @@
 		    <label for="image">Nom du fichier image (avec l'extension)</label>
 		    <input class="form-control" name="image" placeholder="projet1.jpg">
 		  </div>
+			<div class="form-group">
+		    <label for="title">Lien du projet</label>
+		    <input class="form-control" name="link" placeholder="URL du projet">
+		  </div>
 			<div class="form-group row">
 			  <label for="example-date-input" class="col-2 col-form-label">Date</label>
 			  <div class="col-10">
