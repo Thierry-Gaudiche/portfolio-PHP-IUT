@@ -30,6 +30,16 @@ if(isset($_GET['id_project_del']))
 //                                               Projects
 // ====================================================================================================
 
+function getProjects(){
+    require('connect.php');
+    $query_project = "SELECT * FROM projets";
+    $query = $bdPdo->prepare($query_project);
+    $query->execute();
+    $project = $query->fetchALL(PDO::FETCH_OBJ);
+
+return $project;
+}
+
 function createProject(){
 
     require('connect.php');

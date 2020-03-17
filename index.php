@@ -104,114 +104,21 @@
                     </div>
                     <div id="grid-container">
                         <!-- Item -->
-                        <div class="cbp-item photography">
-                            <a href="portfolio/work-1.html">
-                                <figure class="fig">
-                                    <img src="images/work-1.jpg" alt="">
-                                    <figcaption>
-                                        <h3>Cosplay</h3>
-                                        <p>Photography</p>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <!-- Item -->
-                        <div class="cbp-item digital">
-                            <a href="portfolio/work-2.html">
-                                <figure class="fig">
-                                    <img src="images/work-2.jpg" alt="">
-                                    <figcaption>
-                                        <h3>Metra Park</h3>
-                                        <p>Branding </p>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <!-- Item -->
-                        <div class="cbp-item digital">
-                            <a href="portfolio/work-3.html">
-                                <figure class="fig">
-                                    <img src="images/work-3.jpg" alt="">
-                                    <figcaption>
-                                        <h3>Socialmedia</h3>
-                                        <p>Digital </p>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <!-- Item -->
-                        <div class="cbp-item branding">
-                            <a href="portfolio/work-5.html">
-                                <figure class="fig">
-                                    <img src="images/work-4.jpg" alt="">
-                                    <figcaption>
-                                        <h3>Vrai Vodka</h3>
-                                        <p>Branding </p>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <!-- Item -->
-                        <div class="cbp-item digital">
-                            <a href="portfolio/work-4.html">
-                                <figure class="fig">
-                                    <img src="images/work-5.jpg" alt="">
-                                    <figcaption>
-                                        <h3>Smart Wallet</h3>
-                                        <p>Digital </p>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <!-- Item -->
-                        <div class="cbp-item branding">
-                            <a href="portfolio/work-6.html">
-                                <figure class="fig">
-                                    <img src="images/work-6.jpg" alt="">
-                                    <figcaption>
-                                        <h3>Motorcycles</h3>
-                                        <p>Branding </p>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <!-- Item -->
-                        <div class="cbp-item branding">
-                            <a href="portfolio/work-8.html">
-                                <figure class="fig">
-                                    <img src="images/work-7.jpg" alt="">
-                                    <figcaption>
-                                        <h3>Racquel Natasha</h3>
-                                        <p>Branding </p>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <!-- Item -->
-                        <div class="cbp-item branding">
-                            <a href="portfolio/work-7.html">
-                                <figure class="fig">
-                                    <img src="images/work-8.jpg" alt="">
-                                    <figcaption>
-                                        <h3>Swacket</h3>
-                                        <p>Branding </p>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                        <!-- Item -->
-                        <div class="cbp-item branding">
-                            <a href="portfolio/work-9.html">
-                                <figure class="fig">
-                                    <img src="images/work-9.jpg" alt="">
-                                    <figcaption>
-                                        <h3>The Gang</h3>
-                                        <p>Branding </p>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                    </div>
+
+												<?php foreach ($projects as $project ): ?>
+	                        <div class="cbp-item photography">
+	                            <a href="portfolio/work-1.html">
+	                                <figure class="fig">
+	                                    <img src="<?= $project->project_image?>" alt="">
+	                                    <figcaption>
+	                                        <h3><?= $project->project_title?></h3>
+	                                        <p><?= $project->project_category?></p>
+	                                    </figcaption>
+	                                </figure>
+	                            </a>
+	                        </div>
+												<?php endforeach ?>
+
                     <!-- load more button -->
                     <div id="port-loadMore" class="cbp-l-loadMore-button top_120 bottom_90">
                         <a href="port.html" class="cbp-l-loadMore-link site-btn" rel="nofollow">
@@ -259,7 +166,7 @@
             </div>
        </div>
     </footer>
-
+		
 <?php include('scripts.php') ?>
 
 </body>
