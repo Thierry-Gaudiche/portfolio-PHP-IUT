@@ -7,15 +7,15 @@ require('connect.php');
 
 //------------- Articles -------------
 
+if(isset($_POST['edit_projet_submit']))
+{
+   editaProject();
+   header('Location:index.php');
+}
+
 if(isset($_POST['create_project']))
 {
     createProject();
-    header('Location:index.php');
-}
-
-if(isset($_POST['update_project']))
-{
-    updateProject();
     header('Location:index.php');
 }
 
@@ -55,6 +55,24 @@ return $article;
 
 }
 
+function editaProject(){
+    require('connect.php');
+
+    $project = getaProject($_GET['id_projet']);
+    $query_edit = $bdPdo->prepare('UPDATE projets SET project_title = :title, project_description = :description, project_image = :image, project_category = :category, project_link = :link,  project_date = :date_project  WHERE id=(:project_id)');
+    $query_edit->execute(array(
+
+        ':project_id' => $_GET['id_projet'],
+        ':title' => $_POST['title'],
+        ':description' => $_POST['description'],
+        ':image' => $_POST['image'],
+        ':category' => $_POST['category'],
+        ':link' => $_POST['link'],
+        ':date_project' => date("Y-m-d",strtotime($_POST['date']))
+    ));
+}
+
+
 function createProject(){
 
   require('connect.php');
@@ -71,25 +89,6 @@ function createProject(){
     ));
 
     $query_create->closeCursor();
-
-}
-
-function updateProject(){
-
-  require('connect.php');
-
-  $date=date("Y-m-d",strtotime($_POST['date']));
-  $query_update = $bdPdo->prepare('UPDATE projets SET project_title = :titre, project_image = :image, project_description = :description, project_date = :date_project, project_category = :category WHERE id=(:id)');
-
-    $query_update->execute(array(
-        ':titre' => $_POST['title'],
-        ':description' => $_POST['description'],
-        ':image' => $_POST['image'],
-        ':category' => $_POST['category'],
-        ':date' => $date
-    ));
-
-    $query_update->closeCursor();
 
 }
 ?>

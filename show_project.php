@@ -2,6 +2,7 @@
 	require_once('functions.php');
 	$project=getaProject($_GET["id"]);
 	$nextProject=getaProject($_GET["id"]+1);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -115,7 +116,7 @@
                         <div class="next-title"><?= $nextProject['project_title'] ?></div>
                     </a>
                 </div>
-
+								<form action= <?= "edit_project.php?id=".$_GET["id"] ?> method="POST" ><input class="btn-primary" type="submit" value="Modifier" name="edit_submit"/></form>
             </section>
 
         </div> <!-- cont end -->

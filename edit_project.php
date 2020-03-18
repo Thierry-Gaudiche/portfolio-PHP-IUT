@@ -1,46 +1,66 @@
-<?php
-	require_once('functions.php');
-?>
-
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	</head>
-	<body>
-		<form action="functions.php" method="POST">
-		  <div class="form-group">
-		    <label for="title">Titre du projet</label>
-		    <input class="form-control" name="title" placeholder="<?= $project->project_title?>">
-		  </div>
-			<div class="form-group">
-		    <label for="description">Description</label>
-		    <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
-		  </div>
-			<div class="form-group">
-		    <label for="image">Nom du fichier image (avec l'extension)</label>
-		    <input class="form-control" name="image" placeholder="<?= $project->project_image?>">
-		  </div>
-			<div class="form-group row">
-			  <label for="example-date-input" class="col-2 col-form-label">Date</label>
-			  <div class="col-10">
-			    <input class="form-control" type="date" name="date" value="<?= $project->project_date?>" >
+<?php
+require_once('functions.php');
+$project=getaProject($_GET["id"]);
+?>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Bordorama</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <LINK rel=STYLESHEET href="styles.css" type="text/css">
+  </head>
+
+  <body>
+
+    <div class="container main-content col-lg-5">
+        <h2> Modifier un projet</h2>
+        <form action=<?= "functions.php?id_projet=".$_GET["id"] ?> method="POST">
+
+        <div class="form-group">
+            <label for="title"> Titre </label><br/>
+            <input type="text" class="form-control" name="title" value=<?= $project['project_title'] ?> >
+        </div>
+
+        <div class="form-group">
+            <label for="description"> description </label><br/>
+            <textarea name="description" cols="110" rows="5" class="form-control"><?= $project['project_description'] ?></textarea>
+        </div>
+
+				<div class="form-group">
+					<label for="title">Lien du projet</label>
+					<input class="form-control" name="link" placeholder="URL du projet">
+				</div>
+
+        <div class="form-group">
+            <label for="image"> Image </label><br/>
+            <input type="url" class="form-control" name="image" value="<?= $project['project_image'] ?>"/>
+        </div>
+
+				<div class="form-group">
+				  <label for="example-date-input" class="col-2 col-form-label">Date</label>
+				  <input class="form-control" type="date" name="date" value="<?= $project['project_date'] ?>" >
+				</div>
+
+				<div class="form-group">
+			    <label for="category">Catégorie</label>
+			    <select name="category" class="form-control">
+			      <option value="Web Design" selected="selected">Web Design</option>
+			      <option value="Developpement Web">Developpement Web</option>
+			      <option value="Branding">Branding</option>
+			    </select>
 			  </div>
-			</div>
-		  <div class="form-group">
-		    <label for="category">Catégorie</label>
-		    <select name="category" class="form-control" id="exampleFormControlSelect1">
-		      <option>Web Design</option>
-		      <option>Developpement Web</option>
-		      <option>Branding</option>
-		    </select>
-		  </div>
-			<div class="form-group">
-		    <input type="submit" class="btn btn-primary" value="Créer le projet" name="create_project">
-		  </div>
-		</form>
-		<?php include('scripts.php') ?>
-	</body>
+
+				<input type="submit" value="modifier le projet" class="btn btn-primary mb-2" name="edit_projet_submit">
+
+        	</form>
+
+    </div>
+
+</body>
+
 </html>
