@@ -7,7 +7,7 @@ require('connect.php');
 //                                       Redirections to functions
 // ====================================================================================================
 
-//------------- Articles -------------
+//------------- Projects -------------
 
 if(isset($_POST['edit_projet_submit']))
 {
@@ -27,6 +27,18 @@ if(isset($_GET['id_project_del']))
     header('Location:index.php');
 }
 
+//------------- Accounts -------------
+
+if(isset($_POST['signIn']))
+{
+   loginAdmin();
+   //header('Location:index.php');
+}
+
+if(isset($_GET['logout_admin']))
+{
+    logoutAdmin();
+}
 
 // ====================================================================================================
 //                                               Projects
@@ -140,32 +152,29 @@ function loginAdmin(){
 
 	require('connect.php');
 
-    $password = md5($_POST['password']);
+  $password = md5($_POST['password']);
 
-	$count = $bdPdo->prepare("SELECT COUNT(*) AS pseudoexist FROM gestionnaires WHERE mail=?");
+	$count = $bdPdo->prepare("SELECT COUNT(*) AS pseudoexist FROM users WHERE user_mail=?");
     $count->execute(array($_POST['mail']));
     $req  = $count->fetch(PDO::FETCH_ASSOC);
     $count->closeCursor();
     if($req['pseudoexist']==0) {
-        $_SESSION['state']=2;
-        header('Location:login.php');
+        header('Location:signIn.php');
     }
 
     else {
-        $testmdp=$bdPdo->prepare("SELECT * FROM users WHERE mail=?");
+        $testmdp=$bdPdo->prepare("SELECT * FROM users WHERE user_mail=?");
         $testmdp->execute(array($_POST['mail']));
         $req_2  = $testmdp->fetch(PDO::FETCH_ASSOC);
         $testmdp->closeCursor();
 
-        if ($req_2['mot_passe']==$password) {
-            $_SESSION['current_user_id']=$req_2['id'];
-            $_SESSION['current_user_password']=$password;
-            $_SESSION['current_user_nom']=$req_2['nom'];
-            $_SESSION['current_user_photo']=$req_2['photo'];
-            header('Location:articles.php');
+        if ($req_2['user_password']==$password) {
+            $_SESSION['current_user_id']=$req_2['user_id'];
+            $_SESSION['current_user_nom']=$req_2['user_firstname'];
+            header('Location:index.php');
         }
         else {
-            header('Location:login.php');
+            header('Location:signIn.php');
         }
     }
 
@@ -173,7 +182,7 @@ function loginAdmin(){
 
 function logoutAdmin(){
     session_destroy();
-    header('Location:login.php');
+    header('Location:index.php');
 
 }
 

@@ -3,76 +3,8 @@
 	$project=getaProject($_GET["id"]);
 	$nextProject=getaProject($_GET["id"]+1);
 
+	include('header.php')
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Gorge Portfolio Template</title>
-	<meta charset="UTF-8">
-	<meta name="description" content="Gorge Portfolio Template">
-	<meta name="keywords" content="personal, portfolio">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<!-- Stylesheets -->
-	<link rel="stylesheet" href="./css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="./cubeportfolio/css/cubeportfolio.min.css"/>
-    <link rel="stylesheet" href="./css/owl.theme.css"/>
-    <link rel="stylesheet" href="./css/owl.carousel.css"/>
-    <link rel="stylesheet" href="./css/colors/red.css"/>
-    <link rel="stylesheet" href="./css/magnific-popup.css"/>
-	<link rel="stylesheet" href="./css/style.css"/>
-
-    <!-- Google Web fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800" rel="stylesheet">
-
-    <!-- Font icons -->
-    <link rel="stylesheet" href="../icon-fonts/fontawesome-5.0.6/css/fontawesome-all.min.css"/>
-    <link rel="stylesheet" href="../icon-fonts/flaticon/flaticon.css" />
-
-</head>
-<body>
-
-
-
-    <!-- HEADER -->
-    <header>
-        <img src="../images/logo.png" alt="">
-        <div class="nav-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </header>
-
-    <!-- FULL MENU -->
-    <div class="full-menu">
-        <div class="full-inner row">
-            <nav class="col-md-8">
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../about.html">About us</a></li>
-                    <li><a href="../news.html">News</a></li>
-                    <li><a href="../contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="col-md-4 full-contact">
-                <ul>
-                    <li class="title">Get in Touch</li>
-                    <li>hi@gorge.com</li>
-                    <li>
-                        <div class="social">
-                            <a href="#"><i class="fab fa-facebook"></i>  </a>
-                            <a href="#"><i class="fab fa-twitter" aria-hidden="true"></i>  </a>
-                            <a href="#"><i class="fab fa-instagram" aria-hidden="true"></i>  </a>
-                            <a href="#"><i class="fab fa-behance" aria-hidden="true"></i>  </a>
-                            <a href="#"><i class="fab fa-dribbble" aria-hidden="true"></i>  </a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
     <!-- SITE CONTENT -->
     <div class="wrapper">
 
