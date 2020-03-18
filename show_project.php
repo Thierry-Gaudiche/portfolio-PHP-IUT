@@ -3,6 +3,7 @@
 	$projects=getProjects();
 	$project=getaProject($_GET["id"]);
 	$nextProject=getaProject($_GET["id"]+1);
+	$category=getCategoryOfAProject($project['project_category']);
 
 	include('header.php');
 ?>
@@ -13,12 +14,18 @@
         <div class="cont">
             <section class="portfolio-single type-1 top_90">
                 <figure class="hero-image">
-                    <img src="../images/portfolio/work-1/01.jpg" alt="">
+									<?php if ($project['project_category']==5): ?>
+										<iframe width="1206" height="678" src="<?= $project['project_link'] ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+									<?php else: ?>
+                    <img src="<?= $project['project_date']?>" alt="">
+									<?php endif;?>
                 </figure>
                 <ul class="information">
                     <li><span>Date:</span><?= $project['project_date'] ?></li>
-                    <li><span>Website:</span> dribbble.com</li>
-                    <li><span>Category:</span> <?= $project['project_category'] ?></li>
+										<?php if (!$project['project_category']==5): ?>
+                    <li><span>Website:</span> <?= $project['project_link'] ?></li>
+										<?php endif;?>
+                    <li><span>Category:</span> <?= $category['category_name'] ?></li>
                 </ul>
                 <h1 class="title bottom_15"><?= $project['project_title'] ?></h1>
                 <p><?= $project['project_description'] ?></p>
@@ -43,14 +50,6 @@
                         <img src="../images/portfolio/work-1/07.jpg" alt="">
                     </figure>
                 </div>
-								<?php if ($_GET["id"]!=count($projects)):?>
-                <div class="col-md-12 portfolio-nav text-center top_90">
-                    <a class="port-next" href="show_project.php?id=<?=$_GET["id"] + 1 ?>">
-                        <div class="nav-title">next</div>
-                        <div class="next-title"><?= $nextProject['project_title'] ?></div>
-                    </a>
-                </div>
-							<?php endif; ?>
 								<form action= <?= "edit_project.php?id=".$_GET["id"] ?> method="POST" ><input class="btn-primary" type="submit" value="Modifier" name="edit_submit"/></form>
             </section>
 
