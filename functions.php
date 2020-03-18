@@ -110,10 +110,10 @@ function deleteProject($id_project){
 
 function getCategories(){
     require('connect.php');
-    $query_project = "SELECT * FROM categories";
-    $query = $bdPdo->prepare($query_project);
+    $query_categories = "SELECT * FROM categories";
+    $query = $bdPdo->prepare($query_categories);
     $query->execute();
-    $project = $query->fetchALL(PDO::FETCH_OBJ);
+    $categories = $query->fetchALL(PDO::FETCH_OBJ);
 
 return $categories;
 }

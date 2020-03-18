@@ -95,7 +95,6 @@
         <div class="cont">
             <section id="portfolio" class="portfolio">
                     <div class="portfolio-filter row">
-											<?php var_dump($categories);?>
 											<?php foreach ( $categories as $category ): ?>
                         <div data-filter=".digital" class="cbp-filter-item"><?= $category->category_name ?></div>
 											<?php endforeach ?>
