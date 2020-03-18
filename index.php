@@ -96,7 +96,7 @@
             <section id="portfolio" class="portfolio">
                     <div class="portfolio-filter row">
 											<?php foreach ( $categories as $category ): ?>
-                        <div data-filter=".digital" class="cbp-filter-item"><?= $category->category_name ?></div>
+                        <div data-filter=".<?= $category->category_name ?>" class="cbp-filter-item"><?= $category->category_name ?></div>
 											<?php endforeach ?>
 											<div data-filter="*" class="cbp-filter-item cbp-filter-item-active">All Works</div>
                     </div>
@@ -104,7 +104,7 @@
                         <!-- Item -->
 
 												<?php foreach ( $projects as $project ): ?>
-	                        <div class="cbp-item <?= $project->project_category?>">
+	                        <div class="cbp-item <?= getCategoryOfAProject($project->project_category)['category_name']?>">
 	                            <a href="show_project.php?id=<?= $project->project_id?>">
 	                                <figure class="fig">
 	                                    <img src="<?= $project->project_image?>" alt="">

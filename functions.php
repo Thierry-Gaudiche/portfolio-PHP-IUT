@@ -118,6 +118,19 @@ function getCategories(){
 return $categories;
 }
 
+function getCategoryOfAProject($id_category){
+  require('connect.php');
+
+  $query_category = "SELECT * FROM categories WHERE category_id=(:id_category)";
+  $query = $bdPdo->prepare($query_category);
+  $query->execute(array(
+      ':id_category' => $id_category
+  ));
+  $category = $query->fetch();
+
+return $category;
+}
+
 // ====================================================================================================
 //                                               Users
 // ====================================================================================================
