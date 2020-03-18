@@ -1,8 +1,7 @@
 <?php
-
 	require_once('functions.php');
+	$categories = getCategories();
 	$projects = getProjects();
-
 ?>
 
 <!DOCTYPE html>
@@ -51,9 +50,8 @@
         <div class="full-inner row">
             <nav class="col-md-8">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About us</a></li>
-                    <li><a href="news.html">News</a></li>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À propos de nous</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
@@ -80,8 +78,8 @@
         <section class="home">
             <div id="particles-js"></div>
             <div class="home-content">
-                <h1 class="hero-title">More of <br><span>an agency</span></h1>
-                <p class="top_45">We are a design agency in Los Angeles. We are<br> designing <span class="element" data-text1="web interface." data-text2="branding identity." data-text3="logo." data-loop="true" data-backdelay="1500"></span></p>
+                <h1 class="hero-title">Thierry<br><span>et Simon</span></h1>
+                <p class="top_45">Nous sommes web-designer et developpeur web sur Bordeaux.<br> Nos compétences: <span class="element" data-text1="React" data-text2="Php" data-text3="Adobe Xd" data-loop="true" data-backdelay="1500"></span></p>
                 <div class="social">
                     <a class="text">social links</a>
                     <div class="line"></div>
@@ -97,15 +95,16 @@
         <div class="cont">
             <section id="portfolio" class="portfolio">
                     <div class="portfolio-filter row">
-                        <div data-filter=".digital" class="cbp-filter-item">Digital Works</div>
-                        <div data-filter=".photography" class="cbp-filter-item">Photography</div>
-                        <div data-filter=".branding" class="cbp-filter-item">Branding</div>
-                        <div data-filter="*" class="cbp-filter-item cbp-filter-item-active">All Works</div>
+											<?php var_dump($categories);?>
+											<?php foreach ( $categories as $category ): ?>
+                        <div data-filter=".digital" class="cbp-filter-item"><?= $category->category_name ?></div>
+											<?php endforeach ?>
+											<div data-filter="*" class="cbp-filter-item cbp-filter-item-active">All Works</div>
                     </div>
                     <div id="grid-container">
                         <!-- Item -->
 
-												<?php foreach ($projects as $project ): ?>
+												<?php foreach ( $projects as $project ): ?>
 	                        <div class="cbp-item <?= $project->project_category?>">
 	                            <a href="show_project.php?id=<?= $project->project_id?>">
 	                                <figure class="fig">
