@@ -50,14 +50,6 @@
                         <img src="../images/portfolio/work-1/07.jpg" alt="">
                     </figure>
                 </div>
-								<?php if ($_GET["id"]!=count($projects)):?>
-                <div class="col-md-12 portfolio-nav text-center top_90">
-                    <a class="port-next" href="show_project.php?id=<?=$_GET["id"] + 1 ?>">
-                        <div class="nav-title">next</div>
-                        <div class="next-title"><?= $nextProject['project_title'] ?></div>
-                    </a>
-                </div>
-							<?php endif; ?>
 								<form action= <?= "edit_project.php?id=".$_GET["id"] ?> method="POST" ><input class="btn-primary" type="submit" value="Modifier" name="edit_submit"/></form>
             </section>
 
