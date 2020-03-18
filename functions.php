@@ -32,7 +32,12 @@ if(isset($_GET['id_project_del']))
 if(isset($_POST['signIn']))
 {
    loginAdmin();
-   //header('Location:index.php');
+}
+
+if(isset($_POST['signUp']))
+{
+    signUpAdmin();
+    header("index.php");
 }
 
 if(isset($_GET['logout_admin']))
@@ -152,7 +157,7 @@ function loginAdmin(){
 
 	require('connect.php');
 
-  $password = md5($_POST['password']);
+  $password = md5($_POST['password']); //Cryptage du mot de passe
 
 	$count = $bdPdo->prepare("SELECT COUNT(*) AS pseudoexist FROM users WHERE user_mail=?");
     $count->execute(array($_POST['mail']));
@@ -186,4 +191,32 @@ function logoutAdmin(){
 
 }
 
+function signUpAdmin(){
+
+  require('connect.php');
+
+  if ($_POST['password']==$_POST['password_confirm']) { //verification de la confirmation
+
+    $password = md5($_POST['password']); //Cryptage du mot de passe
+
+    $query_create = $bdPdo->prepare('INSERT INTO users(user_lastname, user_firstname, user_description, cvlink, user_image, user_password, user_mail) VALUES(:lastname, :firstname, :description, :cvlink, :user_image, :password, :mail)');
+
+      $query_create->execute(array(
+          ':mail' => $_POST['email'],
+          ':password' => $password,
+          ':firstname' => $_POST['firstname'],
+          ':lastname' => $_POST['lastname'],
+          ':description' => $_POST['description'],
+          ':cvlink' => NULL,
+          ':user_image' => NULL
+      ));
+
+      $query_create->closeCursor();
+  }
+  else {
+    header("signUp.php");
+  }
+
+
+}
 ?>

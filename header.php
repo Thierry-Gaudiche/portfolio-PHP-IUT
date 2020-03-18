@@ -69,6 +69,9 @@
                         </div>
                     </li>
                 </ul>
+								<div class="" style="position:fixed;bottom:0;right:0;">
+									<a href="signUp.php"><img style="width:30px;" src="./assets/bubule.png" /></a>
+								</div>
             </div>
         </div>
     </div>
