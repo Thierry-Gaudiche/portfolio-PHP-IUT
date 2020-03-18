@@ -1,5 +1,8 @@
 <?php
 	require_once('functions.php');
+	if (!isset($_SESSION['current_user_id'])){
+		header('Location:index.php');
+	}
 ?>
 
 <!DOCTYPE html>

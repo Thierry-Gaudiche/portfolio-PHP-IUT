@@ -199,7 +199,7 @@ function signUpAdmin(){
 
     $password = md5($_POST['password']); //Cryptage du mot de passe
 
-    $query_create = $bdPdo->prepare('INSERT INTO users(user_lastname, user_firstname, user_description, cvlink, user_image, user_password, user_mail) VALUES(:lastname, :firstname, :description, :cvlink, :user_image, :password, :mail)');
+    $query_create = $bdPdo->prepare('INSERT INTO users(user_lastname, user_firstname, user_description, user_cvlink, user_image, user_password, user_mail) VALUES(:lastname, :firstname, :description, :cv_link, :user_image, :password, :mail)');
 
       $query_create->execute(array(
           ':mail' => $_POST['email'],
@@ -207,14 +207,15 @@ function signUpAdmin(){
           ':firstname' => $_POST['firstname'],
           ':lastname' => $_POST['lastname'],
           ':description' => $_POST['description'],
-          ':cvlink' => NULL,
+          ':cv_link' => NULL,
           ':user_image' => NULL
       ));
 
       $query_create->closeCursor();
+      header('Location:index.php');
   }
   else {
-    header("signUp.php");
+    header('Location:signUp.php');
   }
 
 
