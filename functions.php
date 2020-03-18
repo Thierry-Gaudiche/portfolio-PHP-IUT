@@ -58,4 +58,23 @@ function createProject(){
     $query_create->closeCursor();
 
 }
+
+function updateProject(){
+
+  require('connect.php');
+
+  $date=date("Y-m-d",strtotime($_POST['date']));
+  $query_update = $bdPdo->prepare('UPDATE projets SET project_title = :titre, project_image = :image, project_description = :description, project_date = :date_project, project_category = :category WHERE id=(:id)');
+
+    $query_update->execute(array(
+        ':titre' => $_POST['title'],
+        ':description' => $_POST['description'],
+        ':image' => $_POST['image'],
+        ':category' => $_POST['category'],
+        ':date' => $date
+    ));
+
+    $query_update->closeCursor();
+
+}
 ?>
