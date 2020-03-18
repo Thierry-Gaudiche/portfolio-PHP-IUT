@@ -12,6 +12,7 @@
    " api_secret " => "3gRW7OhyusQ9j3SMTbk48pAv2as"
 ));
 
+
     $currentDir = getcwd();
     $uploadDirectory = "/uploads/";
 
