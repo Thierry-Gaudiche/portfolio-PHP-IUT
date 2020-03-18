@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 17, 2020 at 02:40 PM
+-- Generation Time: Mar 17, 2020 at 03:56 PM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.10
 
@@ -17,6 +17,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `category_id` int(11) NOT NULL,
+  `category_name` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `projets`
 --
 
@@ -26,6 +37,7 @@ CREATE TABLE `projets` (
   `project_description` text NOT NULL,
   `project_image` varchar(500) NOT NULL,
   `project_date` date NOT NULL,
+  `project_link` varchar(200) DEFAULT NULL,
   `project_category` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -33,14 +45,37 @@ CREATE TABLE `projets` (
 -- Dumping data for table `projets`
 --
 
-INSERT INTO `projets` (`project_id`, `project_title`, `project_description`, `project_image`, `project_date`, `project_category`) VALUES
-(1, 'jogging +', 'refonte du site', 'https://thierry-gaudiche.com/Portfolio/images/projet2.png', '2019-05-24', ''),
-(3, 'ma ville accessible', 'lobbying citoyen', 'https://thierry-gaudiche.com/Portfolio/images/projet1.png', '2020-03-01', ''),
-(4, 'ma carte sonore', 'carte sonore iut', 'https://thierry-gaudiche.com/Portfolio/images/projet6.png', '2020-01-06', '');
+INSERT INTO `projets` (`project_id`, `project_title`, `project_description`, `project_image`, `project_date`, `project_link`, `project_category`) VALUES
+(1, 'jogging +', 'refonte du site', 'https://thierry-gaudiche.com/Portfolio/images/projet2.png', '2019-05-24', NULL, ''),
+(3, 'ma ville accessible', 'lobbying citoyen', 'https://thierry-gaudiche.com/Portfolio/images/projet1.png', '2020-03-01', NULL, ''),
+(4, 'ma carte sonore', 'carte sonore iut', 'https://thierry-gaudiche.com/Portfolio/images/projet6.png', '2020-01-06', NULL, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `user_id` int(10) NOT NULL,
+  `user_lastname` text NOT NULL COMMENT 'nom de famille',
+  `user_firstname` text NOT NULL COMMENT 'prenom',
+  `user_description` text NOT NULL,
+  `user_cvlink` varchar(200) DEFAULT NULL,
+  `user_image` varchar(500) DEFAULT NULL,
+  `user_password` varchar(500) NOT NULL,
+  `user_mail` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`category_id`);
 
 --
 -- Indexes for table `projets`
@@ -49,11 +84,29 @@ ALTER TABLE `projets`
   ADD PRIMARY KEY (`project_id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `projets`
 --
 ALTER TABLE `projets`
-  MODIFY `project_id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `project_id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT;

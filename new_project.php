@@ -17,11 +17,15 @@
 		  </div>
 			<div class="form-group">
 		    <label for="description">Description</label>
-		    <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
+		    <textarea class="form-control" name="description" rows="3"></textarea>
 		  </div>
 			<div class="form-group">
 		    <label for="image">Nom du fichier image (avec l'extension)</label>
 		    <input class="form-control" name="image" placeholder="projet1.jpg">
+		  </div>
+			<div class="form-group">
+		    <label for="title">Lien du projet</label>
+		    <input class="form-control" name="link" placeholder="URL du projet">
 		  </div>
 			<div class="form-group row">
 			  <label for="example-date-input" class="col-2 col-form-label">Date</label>
@@ -31,10 +35,10 @@
 			</div>
 		  <div class="form-group">
 		    <label for="category">Catégorie</label>
-		    <select name="category" class="form-control" id="exampleFormControlSelect1">
-		      <option>Web Design</option>
-		      <option>Developpement Web</option>
-		      <option>Branding</option>
+		    <select name="category" class="form-control">
+		      <option value="Web Design" selected="selected">Web Design</option>
+		      <option value="Developpement Web">Developpement Web</option>
+		      <option value="Branding">Branding</option>
 		    </select>
 		  </div>
 			<div class="form-group">

@@ -107,7 +107,7 @@
 
 												<?php foreach ($projects as $project ): ?>
 	                        <div class="cbp-item <?= $project->project_category?>">
-	                            <a href="portfolio/work-1.html">
+	                            <a href="show_project.php?id=<?= $project->project_id?>">
 	                                <figure class="fig">
 	                                    <img src="<?= $project->project_image?>" alt="">
 	                                    <figcaption>
