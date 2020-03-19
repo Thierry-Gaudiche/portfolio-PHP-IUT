@@ -157,8 +157,32 @@ return $category;
 //                                               Users
 // ====================================================================================================
 
+function getUsers(){
+    require('connect.php');
+    $query_user = "SELECT * FROM users";
+    $query = $bdPdo->prepare($query_user);
+    $query->execute();
+    $user = $query->fetchALL(PDO::FETCH_OBJ);
 
-function loginAdmin(){
+return $user;
+}
+
+function getaUser($id_user){
+
+    require('connect.php');
+
+    $query_project = "SELECT * FROM users WHERE user_id=(:id_user)";
+    $query = $bdPdo->prepare($query_user);
+    $query->execute(array(
+        ':id_user' => $id_user
+    ));
+    $user = $query->fetch();
+
+return $user;
+
+}
+
+function   loginAdmin(){
 
 	require('connect.php');
 

@@ -31,7 +31,6 @@
 
     <!-- HEADER -->
     <header>
-        <img src="images/logo.png" alt="">
         <div class="nav-icon">
             <span></span>
             <span></span>
@@ -47,16 +46,25 @@
                     <li><a href="index.php">Accueil</a></li>
                     <li><a href="about.php">À propos de nous</a></li>
                     <li><a href="contact.php">Contact</a></li>
+										<?php
+										if (isset($_SESSION['current_user_id'])) :?>
+											<li><a href="new_project.php">ajouter un projet</a></li>
+										<?php endif; ?>
+
                 </ul>
             </nav>
             <div class="col-md-4 full-contact">
                 <ul>
-                    <li class="title">Get in Touch</li>
-                    <li>hi@gorge.com</li>
+										<li class="title">Get in Touch</li>
+										<?php
+										if (isset($_SESSION['current_user_id'])) :?>
+											<li>hi <?= $_SESSION['current_user_nom']?></li>
+										<?php endif; ?>
 										<?php
 										if (isset($_SESSION['current_user_id'])) :?>
 											<li><a href="functions.php?logout_admin">Se deconnecter</a></li>
 										<?php else : ?>
+											<li><a href="signUp.php">S'inscrire</a></li>
 											<li><a href="signIn.php">Se connecter</a></li>
 										<?php endif; ?>
                     <li>
