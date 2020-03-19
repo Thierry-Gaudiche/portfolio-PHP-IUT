@@ -25,7 +25,7 @@
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" required="required" name"password" class="form-control" placeholder="Mot de passe">
+            <input type="password" required="required" name="password" class="form-control" placeholder="Mot de passe">
           </div>
           <div class="form-check">
             <input type="checkbox" class="form-check-input">

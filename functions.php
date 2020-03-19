@@ -21,9 +21,9 @@ if(isset($_POST['create_project'])) // execution de la fonction create lorsque l
     header('Location:index.php');
 }
 
-if(isset($_GET['id_project_del'])) // execution de la fonction delete lorsque le bouton delete de la page show a été pressé
+if(isset($_GET['delete_id'])) // execution de la fonction delete lorsque le bouton delete de la page show a été pressé
 {
-    deleteProject();
+    deleteProject($_GET['delete_id']);
     header('Location:index.php');
 }
 
@@ -37,7 +37,6 @@ if(isset($_POST['signIn']))
 if(isset($_POST['signUp']))
 {
     signUpAdmin();
-    header("index.php");
 }
 
 if(isset($_GET['logout_admin']))
@@ -118,7 +117,7 @@ function deleteProject($id_project){
 
     require('connect.php');
 
-    $query_delete = $bdPdo->prepare('DELETE FROM articles WHERE id=:id ');
+    $query_delete = $bdPdo->prepare('DELETE FROM projets WHERE project_id=:id ');
     $query_delete->execute(array(
         ':id' => $id_project
     ));
@@ -194,7 +193,7 @@ function   loginAdmin(){
     $count->closeCursor();
     if($req['pseudoexist']==0) {
         $_SESSION['unknown_mail']=true;
-        //header('Location:signIn.php');
+        header('Location:signIn.php');
     }
 
     else {
@@ -208,11 +207,11 @@ function   loginAdmin(){
             $_SESSION['current_user_id']=$req_2['user_id'];
             $_SESSION['current_user_nom']=$req_2['user_firstname'];
             $_SESSION['incorect_password']=false;
-            //header('Location:index.php');
+            header('Location:index.php');
         }
         else {
             $_SESSION['incorect_password']=true;
-            //header('Location:signIn.php');
+            header('Location:signIn.php');
         }
     }
 
@@ -246,11 +245,11 @@ function signUpAdmin(){
 
       $query_create->closeCursor();
       $_SESSION['passwords_not_same']=false;
-      header('Location:index.php');
+      //header('Location:index.php');
   }
   else {
     $_SESSION['passwords_not_same']=true;
-    header('Location:signUp.php');
+  //header('Location:signUp.php');
   }
 
 

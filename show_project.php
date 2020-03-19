@@ -50,7 +50,10 @@
                         <img src="../images/portfolio/work-1/07.jpg" alt="">
                     </figure>
                 </div>
-								<form action= <?= "edit_project.php?id=".$_GET["id"] ?> method="POST" ><input class="btn-primary" type="submit" value="Modifier" name="edit_submit"/></form>
+								<div class="row">
+									<form action= <?= "edit_project.php?id=".$_GET["id"] ?> method="POST" ><input class="btn btn-primary mr-2" type="submit" value="Modifier" name="edit_submit"/></form>
+									<a href="<?= "functions.php?delete_id=".$_GET["id"] ?>" class="btn btn-danger">Supprimer</a>
+								</div>
             </section>
 
         </div> <!-- cont end -->

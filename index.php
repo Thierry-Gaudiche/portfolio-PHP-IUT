@@ -49,14 +49,6 @@
 	                        </div>
 												<?php endforeach ?>
 											</div>
-                    <!-- load more button -->
-                    <div id="port-loadMore" class="cbp-l-loadMore-button top_120 bottom_90">
-                        <a href="port.html" class="cbp-l-loadMore-link site-btn" rel="nofollow">
-                            <span class="cbp-l-loadMore-defaultText">Charger plus (<span class="cbp-l-loadMore-loadItems">2</span>)</span>
-                            <span class="cbp-l-loadMore-loadingText">Chargement...</span>
-                            <span class="cbp-l-loadMore-noMoreLoading">Plus de projets supplémentaires</span>
-                        </a>
-                    </div>
             </section>
 
             <hr class="top_90 bottom_90 col-md-8">
