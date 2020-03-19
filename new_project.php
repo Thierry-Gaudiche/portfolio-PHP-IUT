@@ -3,6 +3,7 @@
 	if (!isset($_SESSION['current_user_id'])){
 		header('Location:index.php');
 	}
+	$categories=getCategories();
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +30,7 @@
 			<div class="form-group">
 		    <label for="title">Lien du projet</label>
 		    <input class="form-control" name="link" placeholder="URL du projet">
+				<small class="form-text text-muted">L'URL(embed) dans le cas d'un projet vidéo.</small>
 		  </div>
 			<div class="form-group row">
 			  <label for="example-date-input" class="col-2 col-form-label">Date</label>
@@ -39,9 +41,9 @@
 		  <div class="form-group">
 		    <label for="category">Catégorie</label>
 		    <select name="category" class="form-control">
-		      <option value="Web Design" selected="selected">Web Design</option>
-		      <option value="Developpement Web">Developpement Web</option>
-		      <option value="Branding">Branding</option>
+					<?php foreach ($categories as $category ): ?>
+		      	<option value="<?= $category->category_id ?>" selected="selected"><?= $category->category_name ?></option>
+					<?php endforeach;?>
 		    </select>
 		  </div>
 			<div class="form-group">
