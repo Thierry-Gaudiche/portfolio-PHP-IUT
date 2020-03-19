@@ -77,9 +77,11 @@
                         </div>
                     </li>
                 </ul>
-								<div class="" style="position:fixed;bottom:0;right:0;">
-									<a href="signUp.php"><img style="width:30px;" src="./assets/bubule.png" /></a>
-								</div>
+								<?php if (!isset($_SESSION['current_user_id'])) :?>
+									<div class="" style="position:fixed;bottom:0;right:0;">
+										<a href="signUp.php"><img style="width:30px;" src="./assets/bubule.png" /></a>
+									</div>
+								<?php endif; ?>
             </div>
         </div>
     </div>

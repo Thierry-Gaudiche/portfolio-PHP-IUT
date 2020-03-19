@@ -30,7 +30,7 @@
 											<?php foreach ( $categories as $category ): ?>
                         <div data-filter=".<?= $category->category_name ?>" class="cbp-filter-item"><?= $category->category_name ?></div>
 											<?php endforeach ?>
-											<div data-filter="*" class="cbp-filter-item cbp-filter-item-active">All Works</div>
+											<div data-filter="*" class="cbp-filter-item cbp-filter-item-active">Tous</div>
                     </div>
                     <div id="grid-container">
 
@@ -52,9 +52,9 @@
                     <!-- load more button -->
                     <div id="port-loadMore" class="cbp-l-loadMore-button top_120 bottom_90">
                         <a href="port.html" class="cbp-l-loadMore-link site-btn" rel="nofollow">
-                            <span class="cbp-l-loadMore-defaultText">Load More (<span class="cbp-l-loadMore-loadItems">2</span>)</span>
-                            <span class="cbp-l-loadMore-loadingText">Loading...</span>
-                            <span class="cbp-l-loadMore-noMoreLoading">No More Works</span>
+                            <span class="cbp-l-loadMore-defaultText">Charger plus (<span class="cbp-l-loadMore-loadItems">2</span>)</span>
+                            <span class="cbp-l-loadMore-loadingText">Chargement...</span>
+                            <span class="cbp-l-loadMore-noMoreLoading">Plus de projets supplémentaires</span>
                         </a>
                     </div>
             </section>
@@ -76,7 +76,7 @@
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12 copyright">
                     <img src="images/logo.png" alt="">
-                    <p>© 2018 Gorge Creative Agency</p>
+                    <p>© 2020 Réalisé par Thierry Gaudiche  <br> et Simon Deflesschouwer</p>
                 </div>
                 <div class="col-md-4 d-sm-none d-md-block">
                     <div class="social">
@@ -88,9 +88,8 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-12 d-none d-sm-block getintouch">
-                    <a href="#">
-                        <strong>Get In Touch</strong><br>
-                        <p>hi@gergedigital.co</p>
+                    <a href="contact.php">
+                        <strong>Restez en contact !</strong><br>
                     </a>
                 </div>
             </div>
