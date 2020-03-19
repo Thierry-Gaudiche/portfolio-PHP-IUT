@@ -80,8 +80,7 @@ return $project;
 function editaProject(){
     require('connect.php');
 
-    $project = getaProject($_GET['id_projet']);
-    $query_edit = $bdPdo->prepare('UPDATE projets SET project_title = :title, project_description = :description, project_image = :image, project_category = :category, project_link = :link,  project_date = :date_project  WHERE id=(:project_id)');
+    $query_edit = $bdPdo->prepare('UPDATE projets SET project_title = :title, project_description = :description, project_image = :image, project_category = :category, project_link = :link,  project_date = :date_project  WHERE project_id=(:project_id)');
     $query_edit->execute(array(
 
         ':project_id' => $_GET['id_projet'],

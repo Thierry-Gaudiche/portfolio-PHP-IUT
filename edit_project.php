@@ -24,7 +24,7 @@ $project=getaProject($_GET["id"]);
         <form action=<?= "functions.php?id_projet=".$_GET["id"] ?> method="POST"><!-- On récupere l'id du projet à modifier -->
 
         <div class="form-group">
-            <label for="title"> Titre </label><br/>
+            <label for="title" Titre </label><br/>
             <input type="text" class="form-control" name="title" value=<?= $project['project_title'] ?> ><!-- On récupere le titre du projet à modifier et on rempli le champ avec-->
         </div>
 
