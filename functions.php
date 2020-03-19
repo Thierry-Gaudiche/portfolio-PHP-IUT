@@ -88,7 +88,7 @@ function editaProject(){
         ':description' => $_POST['description'],
         ':image' => $_POST['image'],
         ':category' => $_POST['category'],
-        ':link' => $_POST['link'],
+        ':link' => $_POST['category'],
         ':date_project' => date("Y-m-d",strtotime($_POST['date']))
     ));
 }
