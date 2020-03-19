@@ -33,16 +33,16 @@
 											<div data-filter="*" class="cbp-filter-item cbp-filter-item-active">All Works</div>
                     </div>
                     <div id="grid-container">
-                        <!-- Item -->
 
+                        <!-- Boucle foreach pour afficher les projets implémentés dans la base de données -->
 												<?php foreach ( $projects as $project ): ?>
 	                        <div class="cbp-item <?= getCategoryOfAProject($project->project_category)['category_name']?>">
-	                            <a href="show_project.php?id=<?= $project->project_id?>">
+	                            <a href="show_project.php?id=<?= $project->project_id?>"><!-- On récupere l'id du projet -->
 	                                <figure class="fig">
-	                                    <img src="<?= $project->project_image?>" alt="">
+	                                    <img src="<?= $project->project_image?>" alt=""><!-- On récupere l'image du projet -->
 	                                    <figcaption>
-	                                        <h3><?= $project->project_title?></h3>
-	                                        <p><?= $project->project_category?></p>
+	                                        <h3><?= $project->project_title?></h3><!-- On récupere le titre du projet -->
+	                                        <p><?= $project->project_category?></p><!-- On récupere la catégorie du projet -->
 	                                    </figcaption>
 	                                </figure>
 	                            </a>

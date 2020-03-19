@@ -9,19 +9,19 @@ require('connect.php');
 
 //------------- Projects -------------
 
-if(isset($_POST['edit_projet_submit']))
+if(isset($_POST['edit_projet_submit'])) // execution de la fonction edit lorsque le bouton modifier de la page edit a été pressé
 {
    editaProject();
    header('Location:index.php');
 }
 
-if(isset($_POST['create_project']))
+if(isset($_POST['create_project'])) // execution de la fonction create lorsque le bouton create de la page create a été pressé
 {
     createProject();
     header('Location:index.php');
 }
 
-if(isset($_GET['id_project_del']))
+if(isset($_GET['id_project_del'])) // execution de la fonction delete lorsque le bouton delete de la page show a été pressé
 {
     deleteProject();
     header('Location:index.php');
@@ -49,6 +49,7 @@ if(isset($_GET['logout_admin']))
 //                                               Projects
 // ====================================================================================================
 
+// fonction de récupération des projets
 function getProjects(){
     require('connect.php');
     $query_project = "SELECT * FROM projets";
@@ -59,6 +60,7 @@ function getProjects(){
 return $project;
 }
 
+// fonction qui récupere un projet avec une id donné
 function getaProject($id_project){
 
     require('connect.php');
@@ -74,6 +76,7 @@ return $project;
 
 }
 
+// fonction qui modifie le projet (on récupère les données des champs pour remplacer celles existantes dans la DB)
 function editaProject(){
     require('connect.php');
 
@@ -91,7 +94,7 @@ function editaProject(){
     ));
 }
 
-
+// fonction qui créé ue projet (on récupère les données des champs pour les placer dans la table project de la DB)
 function createProject(){
 
   require('connect.php');
@@ -111,6 +114,7 @@ function createProject(){
 
 }
 
+// fonction qui suprime le projet
 function deleteProject($id_project){
 
     require('connect.php');
@@ -125,6 +129,7 @@ function deleteProject($id_project){
 //                                               Categories
 // ====================================================================================================
 
+// fonction qui récupere les différentes catégories de la db
 function getCategories(){
     require('connect.php');
     $query_categories = "SELECT * FROM categories";
@@ -135,6 +140,7 @@ function getCategories(){
 return $categories;
 }
 
+// fonction qui récupere la catégorie associé à un projet
 function getCategoryOfAProject($id_category){
   require('connect.php');
 
