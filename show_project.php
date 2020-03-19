@@ -17,7 +17,7 @@
 									<?php if ($project['project_category']==5): ?>
 										<iframe width="1206" height="678" src="<?= $project['project_link'] ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 									<?php else: ?>
-                    <img src="<?= $project['project_date']?>" alt="">
+                    <img style="height:30vh" src="<?= $project['project_image']?>" alt="">
 									<?php endif;?>
                 </figure>
                 <ul class="information">
