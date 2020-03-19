@@ -60,14 +60,14 @@
             </section>
 
             <hr class="top_90 bottom_90 col-md-8">
-
-            <section class="widget-twitter top_60">
-                 <div class="widget-title">
-                    <h2 class="classic-title">Latest Tweets</h2>
-                </div>
-                <div class="tweet"><ul><li class="item">12312</li></ul></div>
-                <a href="https://twitter.com/envato" target="_blank" class="twitter-account">@envato</a>
-            </section>
+						<section class="row">
+							<div class="col-md-12" style="text-align: center;" id="chuck">
+								<p class="mb-4" style="font-weight:bold;" >Parce que pour nous la sagesse est primordiale, voici des faits aléatoires sur Chuck Norris:</p>
+							</div>
+							<div class="col-md-12 d-flex">
+								<img class="m-auto" style="width:150px;" src="./assets/chuck.gif"/>
+							<div>
+						</section>
         </div> <!-- cont end -->
     </div> <!-- wrapper end -->
 
@@ -103,6 +103,7 @@
 	include('scripts.php')
 ?>
 <!-- Javascripts -->
+<script src="js/chuckNorrisAPI.js"></script>
 <script src="js/jquery-2.1.4.min.js"></script>
 <script src="cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
 <script src="js/typed.js"></script>

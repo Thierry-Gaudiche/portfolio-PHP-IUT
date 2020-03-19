@@ -7,11 +7,11 @@ error_reporting(E_ALL);
 // Connexion et choix de la base de données
 $server = 'mysql:host=localhost;dbname=thierry_simon';
 $user = 'root';
-$password = '';
+$password = 'root';
 
 
 try {
-	$bdPdo = new PDO($server, $user, $password);
+	$bdPdo = new PDO($server, $user, $password);  //PDO: Php Data Objects
 }
 catch (PDOException $e){
 	echo 'Problème de connexion : ' . $e->getMessage();
