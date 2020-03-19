@@ -45,7 +45,7 @@ $project=getaProject($_GET["id"]);
             </div>
             <script type="text/javascript" src="js/imgur.js"></script>
             <script type="text/javascript" src="js/upload.js"></script>
-             <!--<input type="url" class="form-control" name="image" value="<?= $project['project_image'] ?>"/> On récupere l'image du projet à modifier et on rempli le champ avec-->
+             <!--On récupere l'image du projet à modifier et on rempli le champ avec-->
         </div>
 
 				<div class="form-group">

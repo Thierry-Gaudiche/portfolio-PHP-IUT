@@ -169,10 +169,12 @@ function loginAdmin(){
     $req  = $count->fetch(PDO::FETCH_ASSOC);
     $count->closeCursor();
     if($req['pseudoexist']==0) {
-        header('Location:signIn.php');
+        $_SESSION['unknown_mail']=true;
+        //header('Location:signIn.php');
     }
 
     else {
+        $_SESSION['unknown_mail']=false;
         $testmdp=$bdPdo->prepare("SELECT * FROM users WHERE user_mail=?");
         $testmdp->execute(array($_POST['mail']));
         $req_2  = $testmdp->fetch(PDO::FETCH_ASSOC);
@@ -181,10 +183,12 @@ function loginAdmin(){
         if ($req_2['user_password']==$password) {
             $_SESSION['current_user_id']=$req_2['user_id'];
             $_SESSION['current_user_nom']=$req_2['user_firstname'];
-            header('Location:index.php');
+            $_SESSION['incorect_password']=false;
+            //header('Location:index.php');
         }
         else {
-            header('Location:signIn.php');
+            $_SESSION['incorect_password']=true;
+            //header('Location:signIn.php');
         }
     }
 
@@ -217,9 +221,11 @@ function signUpAdmin(){
       ));
 
       $query_create->closeCursor();
+      $_SESSION['passwords_not_same']=false;
       header('Location:index.php');
   }
   else {
+    $_SESSION['passwords_not_same']=true;
     header('Location:signUp.php');
   }
 

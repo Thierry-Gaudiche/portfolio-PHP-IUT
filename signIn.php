@@ -9,13 +9,23 @@
     <div class="row" style="width:100vw;height:100vh;">
       <div class="m-auto">
         <form action="functions.php" method="POST">
+          <?php if ($_SESSION['unknown_mail']==true):?>
+            <div class="alert alert-danger" role="alert">
+              L'adresse e-mail nous est inconnue !
+            </div>
+          <?php endif;?>
+          <?php if ($_SESSION['incorect_password']==true):?>
+            <div class="alert alert-danger" role="alert">
+              Le mot de passe ne correspond pas !
+            </div>
+          <?php endif;?>
           <div class="form-group">
             <label for="exampleInputEmail1">Adresse Mail</label>
-            <input type="email" name="mail" class="form-control" aria-describedby="emailHelp" placeholder="Entrer mail">
+            <input type="email" name="mail" required="required" class="form-control" aria-describedby="emailHelp" placeholder="Entrer mail">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" name"password" class="form-control" placeholder="Mot de passe">
+            <input type="password" required="required" name"password" class="form-control" placeholder="Mot de passe">
           </div>
           <div class="form-check">
             <input type="checkbox" class="form-check-input">

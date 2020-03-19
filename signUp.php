@@ -9,6 +9,11 @@
     <div class="m-auto col-md-5">
       <form class="form-horizontal" action='functions.php' method="POST">
         <fieldset>
+          <?php if ($_SESSION['passwords_not_same']==true):?>
+            <div class="alert alert-danger" role="alert">
+              Les mots de passe ne correspondent pas !
+            </div>
+          <?php endif;?>
           <div id="legend">
             <h1 class="">S'inscrire</h1>
           </div>

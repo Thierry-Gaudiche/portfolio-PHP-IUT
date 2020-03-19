@@ -23,10 +23,17 @@
 		    <label for="description">Description</label>
 		    <textarea class="form-control" name="description" rows="3"></textarea>
 		  </div>
-			<div class="form-group">
-		    <label for="image">Nom du fichier image (avec l'extension)</label>
-		    <input class="form-control" name="image" placeholder="projet1.jpg">
-		  </div>
+			<div class="form-group row">
+				<div class="col-md-2">
+					<label for="image"> Image de miniature </label><br/>
+					<div class="dropzone">
+							<div class="info"></div>
+					</div>
+					<script type="text/javascript" src="js/imgur.js"></script>
+					<script type="text/javascript" src="js/upload.js"></script>
+					 <!--On récupere l'image du projet à modifier et on rempli le champ avec-->
+				</div>
+			</div>
 			<div class="form-group">
 		    <label for="title">Lien du projet</label>
 		    <input class="form-control" name="link" placeholder="URL du projet">
