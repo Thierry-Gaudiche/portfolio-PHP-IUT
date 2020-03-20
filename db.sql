@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 19, 2020 at 11:57 AM
+-- Generation Time: Mar 20, 2020 at 09:01 AM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.10
 
@@ -56,7 +56,6 @@ CREATE TABLE `projets` (
 --
 
 INSERT INTO `projets` (`project_id`, `project_title`, `project_description`, `project_image`, `project_date`, `project_link`, `project_category`) VALUES
-(1, 'jogging +', 'refonte du site', 'https://thierry-gaudiche.com/Portfolio/images/projet2.png', '2019-05-24', NULL, '4'),
 (3, 'ma ville accessible', 'lobbying citoyen', 'https://thierry-gaudiche.com/Portfolio/images/projet1.png', '2020-03-01', NULL, '2'),
 (4, 'ma carte sonore', 'carte sonore iut', 'https://thierry-gaudiche.com/Portfolio/images/projet6.png', '2020-01-06', NULL, '3'),
 (7, 'Mort dure 4', 'Vidéo parodie', 'https://thierry-gaudiche.com/Portfolio/images/projet6.png', '2019-05-24', 'https://www.youtube.com/embed/LRF-AA68JHU', '5');
@@ -83,7 +82,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_lastname`, `user_firstname`, `user_description`, `user_cvlink`, `user_image`, `user_password`, `user_mail`) VALUES
-(1, 'Deflesschouwer', 'Simon', 'test', NULL, NULL, 'd41d8cd98f00b204e9800998ecf8427e', 'simon.deflesschouwer@mmibordeaux.com');
+(4, 'TEST', 'TEST', 'test', NULL, NULL, '098f6bcd4621d373cade4e832627b4f6', 'simon.deflesschouwer@mmibordeaux.com');
 
 --
 -- Indexes for dumped tables
@@ -127,4 +126,4 @@ ALTER TABLE `projets`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
